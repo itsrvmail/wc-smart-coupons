@@ -1,0 +1,45 @@
+:root { --wcsc-primary: #333; --wcsc-text: #d63638; --wcsc-bg: #fff; --wcsc-slide-width: 280px; --wcsc-slide-gap: 20px; }
+.wcsc-container { margin: 25px 0; position: relative; box-sizing: border-box; }
+
+/* === SYMMETRY CORE === */
+.wcsc-card {
+    display: flex; flex-direction: column; justify-content: space-between;
+    background: var(--wcsc-bg); border: 1px solid #e5e7eb; border-radius: 8px;
+    padding: 16px; min-height: 150px; position: relative; overflow: hidden; transition: transform 0.2s;
+    margin: 0; /* Important: Clear margins for grid gap to work */
+}
+.wcsc-card:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+
+/* VIBRANT TIMER & ALERTS */
+.wcsc-timer { 
+    font-size: 0.9em; font-weight: 800; color: #fff; background: #ef4444; 
+    padding: 4px 10px; border-radius: 50px; display: inline-flex; align-items: center; gap: 5px; 
+    box-shadow: 0 2px 4px rgba(239, 68, 68, 0.3);
+}
+.wcsc-warning { 
+    font-size: 0.95em; color: #d97706; font-weight: 700; margin-top: 5px; 
+    animation: pulse-orange 2s infinite; 
+}
+@keyframes pulse-orange { 0% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; } }
+
+/* === SLIDER PRO === */
+.wcsc-style-slider .wcsc-slider-track { 
+    display: flex; gap: var(--wcsc-slide-gap); overflow-x: auto; scroll-snap-type: x mandatory; 
+    padding: 10px 5px; width: 100%; scrollbar-width: none; 
+}
+.wcsc-style-slider .wcsc-card { 
+    min-width: var(--wcsc-slide-width); width: var(--wcsc-slide-width); 
+    scroll-snap-align: start; flex-shrink: 0; 
+}
+.wcsc-nav { background: #fff; border: 1px solid #eee; border-radius: 50%; width: 36px; height: 36px; cursor: pointer; z-index: 2; display: flex; align-items: center; justify-content: center; position: absolute; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+.wcsc-nav.wcsc-prev { left: -18px; } .wcsc-nav.wcsc-next { right: -18px; }
+
+/* === GRID GAP FIX === */
+.wcsc-style-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 25px; } /* Clean gap */
+
+/* === COMPACT TEMPLATES === */
+.wcsc-style-cyber_ticket { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 25px; }
+.wcsc-style-cyber_ticket .wcsc-card { background: #f8fafc; border: 2px solid #0f172a; border-radius: 0; clip-path: polygon(0 0, 100% 0, 100% 100%, 90% 100%, 85% 90%, 15% 90%, 10% 100%, 0 100%); padding-bottom: 25px; }
+.wcsc-style-pill { display: flex; flex-wrap: wrap; gap: 10px; }
+.wcsc-style-pill .wcsc-card { flex-direction: row; align-items: center; min-height: auto; padding: 6px 12px; border-radius: 50px; width: auto; flex-grow: 0; }
+.wcsc-style-pill .wcsc-body { display: none; }
